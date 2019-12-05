@@ -10,7 +10,8 @@ class SessionsController < ApplicationController
             if user && user.authenticate(params[:session][:password])            
                 session[:user_id] = user.id           
                 # redirect_to user_path(user)
-                format.html { redirect_to user_path(user), notice: 'Login Success!' }         
+                # format.html { redirect_to user_path(user), notice: 'Login Success!' }
+                format.html { redirect_to root_path, notice: 'Login Success!' }         
             else           
                 # render 'new'
                 format.html { render 'new', notice: 'Login NOT success!' }
