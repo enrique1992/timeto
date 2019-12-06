@@ -1,10 +1,13 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :require_user
+  # before_action :require_logged_user
 
   # GET /tasks
   # GET /tasks.json
   def index
     @tasks = Task.all
+    @tasks = Task.where("user_id = ?", current_user)
   end
 
   # GET /tasks/1
@@ -25,7 +28,6 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
-
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
@@ -70,5 +72,11 @@ class TasksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
       params.require(:task).permit(:title, :description)
+    end
+
+    def require_logged_user
+      if current_user != @task.try(:user)
+        redirect_to root_path
+      end
     end
 end
