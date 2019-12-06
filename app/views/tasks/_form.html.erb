@@ -21,6 +21,11 @@
     <%= form.text_field :description, id: :task_description %>
   </div>
 
+  <div class="field">
+    <%= form.label :day %>
+    <%= form.text_field :day, id: :task_day, placeholder: "dd/mm/yy" %>
+  </div>
+
   <div class="actions">
     <%= form.submit class: "btn btn-primary btn-lg" %>
   </div>
