@@ -14,3 +14,29 @@
 .btn { 
     margin: 10px 0 10px 0;
 }
+.centrar {
+    width: 50%;
+    margin: 0 25% 0 25%;
+
+    text-align: center;
+}
+
+.tarea-dia {
+    cursor: pointer;
+  padding: 12px 8px 12px 40px;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+.tarea-dia:hover {
+    background: #ddd;
+}
+
+.tarea-dia td {
+    padding: 0 5px 0 5px;
+}
+
+.doit {
+    padding: 0 1px 0 1px;
+}

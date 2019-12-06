@@ -9,7 +9,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Tasks</h1>
-
+<div class="centrar">
 <table>
   <thead>
     <tr>
@@ -21,30 +21,33 @@
   
 </script>
   <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.title %></td>
-        <td><%= task.description %></td>
-        <td><%= task.day %></td>
-        <td class="state"><%= task.state %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td class="doit">        
-          <%= form_with(url: done_path, class: "form_doit") do |form| %>
-            <div class="field">
-              <%= form.hidden_field :send_task %>
-              <%= hidden_field_tag 'selected', task.id  %>
-            </div>
-            <div class="actions">
-              <%= form.submit "Do it!" %>
-            </div>
-          <% end %>     
-        </td>        
-      </tr>
-    <% end %>
+    
+      <% @tasks.each do |task| %>
+        <tr class="tarea-dia">
+          <td><%= task.title %></td>
+          <td><%= task.description %></td>
+          <td><%= task.day %></td>
+          <td class="state"><%= task.state %></td>
+          <td><%= link_to 'Show', task %></td>
+          <td><%= link_to 'Edit', edit_task_path(task) %></td>
+          <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="doit">        
+            <%= form_with(url: done_path, class: "form_doit") do |form| %>
+              <div class="field">
+                <%= form.hidden_field :send_task %>
+                <%= hidden_field_tag 'selected', task.id  %>
+              </div>
+              <div class="actions">
+                <%= form.submit "Do it!", class: "btn btn-primary doit" %>
+              </div>
+            <% end %>     
+          </td>        
+        </tr>
+      <% end %>
+    
   </tbody>
 </table>
+</div>
 
 <br>
 
