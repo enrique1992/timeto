@@ -1,4 +1,5 @@
 class ToolController < ApplicationController
+    before_action :require_user
     def home
         today = Date.today
         today = today.strftime("%d/%m/%y")
