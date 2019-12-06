@@ -7,4 +7,14 @@ class ToolController < ApplicationController
         tasks_today = user.tasks.select{|task| task.day == today}
         @tasks = tasks_today
     end
+
+    def done        
+        task = Task.find(params[:selected])
+        task.update_attributes!(:state => "DONE")
+    end
+
+    private
+        def tool_params
+            params.permit(:selected)
+        end
 end
