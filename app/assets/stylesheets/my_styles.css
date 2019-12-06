@@ -1,3 +1,8 @@
 .otros {
     background-color: blue !important;
 }
+
+#logo img {
+    width: 96px;
+    height: 32px;
+}
