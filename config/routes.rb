@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :users, except: [:new]
   resources :tasks
 
+  get "tool", to: "tool#home"
+
   get 'signin', to: 'users#new'
   
   get 'login', to: 'sessions#new'
