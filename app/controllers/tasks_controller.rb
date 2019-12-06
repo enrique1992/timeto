@@ -27,7 +27,9 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
+    new_task_params = task_params
     @task = Task.new(task_params)
+    @task.user = User.find(session[:user_id])
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
