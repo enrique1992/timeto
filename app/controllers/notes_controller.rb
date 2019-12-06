@@ -6,6 +6,7 @@ class NotesController < ApplicationController
   # GET /notes.json
   def index
     @notes = Note.all
+    @notes = Note.where("user_id = ?", current_user)
   end
 
   # GET /notes/1
@@ -26,6 +27,7 @@ class NotesController < ApplicationController
   # POST /notes.json
   def create
     @note = Note.new(note_params)
+    @note.user = User.find(session[:user_id]) 
 
     respond_to do |format|
       if @note.save
