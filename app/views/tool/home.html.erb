@@ -1,8 +1,44 @@
 <script>
   $(".form_doit").submit(function(event) {
-    $(".doit").hide();
+    $(this).hide();
     $(".state").text("DONE");
   });
+
+  var cronos = [];
+
+  function crono(element) {
+     if(element.parent().prev().text() == "0") {
+       var start = new Date;
+       
+      //alert("hola");
+      var my_crono = setInterval(function() {
+        element.parent().prev().text(parseInt((new Date - start) / 1000));
+      }, 1000);
+      cronos.push([element, my_crono]);
+      
+     }else {
+       for(c in cronos) {
+         if(c[0] == element) {
+           clearInterval(c[1]);
+         }
+       }
+       
+     }
+  }
+
+  $(".play").click(function(event) {
+    //alert($('input[value=PLAY]').val());
+    if($(this).attr("value") == "PLAY") {
+        crono($(this))
+      $(this).attr("value", "STOP")
+    }else {
+      crono($(this))
+      $(this).attr("value", "PLAY")
+    }
+  });
+
+  
+
 </script> 
 <h1>Herramienta Principal</h1>
 
@@ -28,9 +64,12 @@
           <td><%= task.description %></td>
           <td><%= task.day %></td>
           <td class="state"><%= task.state %></td>
+          <td class="clock">0</td>
+          <td class=""><input class="btn btn-primary doit play" type="button" value="PLAY"></td>
           <td><%= link_to 'Show', task %></td>
           <td><%= link_to 'Edit', edit_task_path(task) %></td>
           <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%if task.state != "DONE"%>
           <td class="doit">        
             <%= form_with(url: done_path, class: "form_doit") do |form| %>
               <div class="field">
@@ -41,7 +80,8 @@
                 <%= form.submit "Do it!", class: "btn btn-primary doit" %>
               </div>
             <% end %>     
-          </td>        
+          </td>
+          <%end%>      
         </tr>
       <% end %>
     
