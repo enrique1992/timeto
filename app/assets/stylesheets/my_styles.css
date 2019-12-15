@@ -40,3 +40,8 @@
 .doit {
     padding: 0 1px 0 1px;
 }
+
+.form-day {
+    width: 10%;
+    min-width: 180px;
+}
