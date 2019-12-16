@@ -2,7 +2,15 @@
   $(".form_doit").submit(function(event) {
     $(this).hide();
     $(".state").text("DONE");
+    //$(this).attr("value", "PLAY")
+    //alert($(this).parent().prev().prev().prev().prev().text())
+    var time = $(this).parent().prev().prev().prev().prev().text();
+    $(this).children().next().next().children().next().next().attr("value", time)
+    //alert($(this).children().next().next().children().next().next().attr("value"))
+
   });
+
+  
 
   var my_crono;
   var crono_running = false;
@@ -60,6 +68,7 @@
               <div class="field">
                 <%= form.hidden_field :send_task %>
                 <%= hidden_field_tag 'selected', task.id  %>
+                <%= hidden_field_tag 'time', task.id  %>
               </div>
               <div class="actions">
                 <%= form.submit "Do it!", class: "btn btn-primary doit" %>

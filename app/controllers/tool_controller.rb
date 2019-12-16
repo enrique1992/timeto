@@ -10,8 +10,10 @@ class ToolController < ApplicationController
         @tasks = tasks_today
     end
 
-    def done        
+    def done
+        debugger
         task = Task.find(params[:selected])
+        time = params[:time]
         task.update_attributes!(:state => "DONE")
     end
 
