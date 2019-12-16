@@ -1,11 +1,14 @@
 <script>
   $(".form_doit").submit(function(event) {
     $(this).hide();
-    $(".state").text("DONE");
+    $(this).parent().prev().prev().prev().prev().prev().text("DONE");
+    //$(".state").text("DONE");
     //$(this).attr("value", "PLAY")
     //alert($(this).parent().prev().prev().prev().prev().text())
     var time = $(this).parent().prev().prev().prev().prev().text();
     $(this).children().next().next().children().next().next().attr("value", time)
+    //$(this).parent().prev().prev().prev().prev().hide()
+    $(this).parent().prev().prev().prev().hide()
     //alert($(this).children().next().next().children().next().next().attr("value"))
 
   });
@@ -58,8 +61,11 @@
           <td><%= task.description %></td>
           <td><%= task.day %></td>
           <td class="state"><%= task.state %></td>
-          <td class="clock">0</td>
+          
+          <td class="clock"><%= task.time %></td>
+          <%if task.state != "DONE"%>
           <td class=""><input class="btn btn-primary doit play" type="button" value="PLAY"></td>
+          <% end %>  
           <td><%= link_to 'Show', task %></td>
           <td><%= link_to 'Edit', edit_task_path(task) %></td>
           <%if task.state != "DONE"%>

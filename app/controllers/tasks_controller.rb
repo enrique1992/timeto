@@ -31,6 +31,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.user = User.find(session[:user_id])
     @task.state = "TODO"
+    @task.time = "0"
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
