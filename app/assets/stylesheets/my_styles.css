@@ -74,6 +74,14 @@
     min-width: 180px;
 }
 
+.cabecera {
+    padding: 156px 0 100px;
+  }
+  
+.seccion {
+  padding: 50px 0;
+}
+
 @media only screen and (max-width: 1000px) {
     .tarea-dia td {
         display: block;       
