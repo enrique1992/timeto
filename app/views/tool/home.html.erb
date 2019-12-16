@@ -4,24 +4,20 @@
     $(".state").text("DONE");
   });
 
-  var cronos = [];
+  var my_crono;
+  var crono_running = false;
 
   function crono(element) {
      if(element.parent().prev().text() == "0") {
        var start = new Date;
-       
-      //alert("hola");
-      var my_crono = setInterval(function() {
+       clearInterval(my_crono);    
+      my_crono = setInterval(function() {
         element.parent().prev().text(parseInt((new Date - start) / 1000));
       }, 1000);
-      cronos.push([element, my_crono]);
+      
       
      }else {
-       for(c in cronos) {
-         if(c[0] == element) {
-           clearInterval(c[1]);
-         }
-       }
+       clearInterval(my_crono);       
        
      }
   }
