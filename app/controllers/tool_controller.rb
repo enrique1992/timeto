@@ -11,7 +11,6 @@ class ToolController < ApplicationController
     end
 
     def done
-        debugger
         task = Task.find(params[:selected])
         time_task = params[:time]
         task.update_attributes!(:state => "DONE", :time => time_task)
