@@ -1,14 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @task.title %>
-</p>
+<div class="centrar">
+  <div class="tarea-dia">
+  <p>
+    <strong>Title:</strong>
+    <%= @task.title %>
+  </p>
+  </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @task.description %>
-</p>
+  <div class="tarea-dia">
+  <p>
+    <strong>Description:</strong>
+    <%= @task.description %>
+  </p>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>

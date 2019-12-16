@@ -1,29 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Notes</h1>
-
+<div class="centrar-notas">
 <table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  
 
   <tbody>
     <% @notes.each do |note| %>
-      <tr>
+      <tr class="lista-notas">
         <td><%= note.title %></td>
         <td><%= note.description %></td>
-        <td><%= link_to 'Show', note %></td>
         <td><%= link_to 'Edit', edit_note_path(note) %></td>
         <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
 <%= link_to 'New Note', new_note_path %>

@@ -21,12 +21,40 @@
     text-align: center;
 }
 
+
+.centrar-notas {
+    width: 50%;
+    margin: 0 25% 0 40%;
+
+    text-align: center;
+}
+.centrar-user {
+    width: 50%;
+    margin: 0 20% 0 40%;
+    text-align: center;
+}
+
 .tarea-dia {
     cursor: pointer;
   padding: 12px 8px 12px 40px;
   background: #eee;
   font-size: 18px;
   transition: 0.2s;
+}
+
+
+
+.lista-notas {
+    cursor: pointer;
+  padding: 12px 8px 12px 40px;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+  margin-top: 20px;
+}
+
+.lista-notas td {
+    display: block;    
 }
 
 .tarea-dia:hover {
@@ -45,3 +73,38 @@
     width: 10%;
     min-width: 180px;
 }
+
+@media only screen and (max-width: 1000px) {
+    .tarea-dia td {
+        display: block;       
+    }
+    .centrar {
+        width: 20%;
+        margin: 0 40% 0 40%;
+    
+        text-align: center;
+    }
+    .centrar-user {
+        width: 20%;
+        margin: 0 40% 0 40%;
+    
+        text-align: center;
+    }
+  }
+
+
+  @media only screen and (max-width: 480px) {
+    .centrar {
+        width: 40%;
+        margin: 0 25% 0 25%;
+    
+        text-align: center;
+    }
+
+    .centrar-user {
+        width: 40%;
+        margin: 0 25% 0 25%;
+    
+        text-align: center;
+    }
+  }

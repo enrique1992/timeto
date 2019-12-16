@@ -2,28 +2,25 @@
 
 <h1>Tasks</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="centrar">
+  <table>
 
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.title %></td>
-        <td><%= task.description %></td>
-        <td><%= task.day %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+    <tbody>
+      <% @tasks.each do |task| %>
+        <tr class="tarea-dia">
+          <td><%= task.title %></td>
+          <td><%= task.description %></td>
+          <td><%= task.day %></td>
+          <td class="state"><%= task.state %></td>
+          <td><%= link_to 'Show', task %></td>
+          <td><%= link_to 'Edit', edit_task_path(task) %></td>
+          <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
 
